@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ 
     extended:true
 })); 
-  
+
 app.get("/", function(req, res) { 
   res.sendFile(__dirname + "/index.html"); 
 }); 
@@ -15,11 +15,25 @@ app.post("/", function(req, res) {
   var num1 = Number(req.body.num1); 
   var num2 = Number(req.body.num2); 
     
-  var result = num1 + num2 ; 
-    
-  res.send("Addition - " + result); 
+  var result1 = num1 + num2 ; 
+  res.send("Add : " + result1);
+
 }); 
   
+
+app.get("/minus", function(req, res) { 
+  res.sendFile(__dirname + "/index.html"); 
+}); 
+  
+app.post("/minus", function(req, res) { 
+  var num1 = Number(req.body.num1); 
+  var num2 = Number(req.body.num2); 
+    
+  var result1 = num1 - num2 ; 
+  res.send("Minus : " + result1);
+
+}); 
+
 app.listen(3000, function(){ 
   console.log("server is running on port 3000"); 
 }) 
